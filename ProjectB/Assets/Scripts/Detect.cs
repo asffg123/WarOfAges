@@ -23,8 +23,9 @@ public class Detect : MonoBehaviour
     public TeamID unitDetector()
     {
         Vector2 center = transform.position;
-        Vector2 pointA = center + ((boxWidth / 2) * Vector2.right) + ((boxHeight / 2) * Vector2.up);
-        Vector2 pointB = center + ((boxWidth / 2) * Vector2.left) + ((boxHeight / 2) * Vector2.down);
+        Vector2 offset = ((boxWidth / 2) * Vector2.right) + ((boxHeight / 2) * Vector2.up);
+        Vector2 pointA = center + offset;
+        Vector2 pointB = center - offset;
 
         var colliders = Physics2D.OverlapAreaAll(pointA, pointB);
 
