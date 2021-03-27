@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Detect : MonoBehaviour
 {
-    public bool EntityDetected { get; private set; } = false;
+    //public bool EntityDetected { get; private set; } = false;
 
     [System.NonSerialized]
     public Collider2D selfCollider;
@@ -29,7 +29,7 @@ public class Detect : MonoBehaviour
 
         var colliders = Physics2D.OverlapAreaAll(pointA, pointB);
 
-        EntityDetected = false;
+        //EntityDetected = false;
 
         foreach (var collider in colliders)
         {
@@ -40,7 +40,7 @@ public class Detect : MonoBehaviour
 
             if (collider.CompareTag("Entity"))
             {
-                EntityDetected = true;
+                //EntityDetected = true;
                 Entity entity = collider.GetComponent<Entity>();
                 TeamID team = entity.team;
                 return team;
