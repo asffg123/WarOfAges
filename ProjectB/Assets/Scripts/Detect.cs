@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Detect : MonoBehaviour
 {
-    public bool EntityDetected { get; private set; } = false;
+    //public bool EntityDetected { get; private set; } = false;
 
     [System.NonSerialized]
     public Collider2D selfCollider;
