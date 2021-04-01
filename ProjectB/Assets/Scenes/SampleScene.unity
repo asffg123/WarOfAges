@@ -138,6 +138,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 6083287145544739441, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
+      propertyPath: attackColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083287145544739441, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
+      propertyPath: attackColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083287145544739441, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
+      propertyPath: attackColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083287145544739441, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
+      propertyPath: attackColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083287145544739441, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
+      propertyPath: attackCooldown.cooldownTime
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6083287145544739443, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -411,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6083287145544739441, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
       propertyPath: team
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6083287145544739441, guid: 312130a7a2db4d14793b0aed92da983c, type: 3}
       propertyPath: MovementSpeed

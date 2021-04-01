@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CooldownTimer;
 
 public class Entity : MonoBehaviour
 {
@@ -10,8 +11,17 @@ public class Entity : MonoBehaviour
     [System.NonSerialized]
     public Health hpBar;
 
+    // Cooldown
+    public Cooldown attackCooldown;
+
     // Team field
     public TeamID team;
+
+    // Color field
+    private Color defaultColor;
+    private SpriteRenderer spriteRenderer;
+    public Color attackColor;
+    public Color hurtColor;
 
     // Unit direction for movement
     public Vector2 FacingDirection;
@@ -44,6 +54,10 @@ public class Entity : MonoBehaviour
         // Finds hp bar
         hpBar = GetComponent<Health>();
         hpBar.UpdateText(currentHpField, maxHpField);
+
+        // Finds spriterender, sets default color
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -53,6 +67,15 @@ public class Entity : MonoBehaviour
         if (Detector.unitDetector() != TeamID.none)
         {
             EffectiveSpeed = 0;
+            
+            if (Detector.unitDetector() != this.team)
+            {
+                if (attackCooldown.IsReady)
+                {
+                    StartCoroutine(Attack());
+                    attackCooldown.Use();
+                }
+            }
         }
         else
             EffectiveSpeed = MovementSpeed;
@@ -61,6 +84,14 @@ public class Entity : MonoBehaviour
         Vector2 velocity = Rbody.velocity;
         velocity.x = FacingDirection.x * EffectiveSpeed;
         Rbody.velocity = velocity;
+    }
+
+    private IEnumerator Attack()
+    {
+        spriteRenderer.color = attackColor;
+        yield return new WaitForSeconds(1);
+
+        spriteRenderer.color = defaultColor;
     }
 }
 
